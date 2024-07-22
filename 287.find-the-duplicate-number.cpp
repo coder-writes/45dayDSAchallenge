@@ -8,16 +8,20 @@
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {    
-        map<int,int> mp;
-        for(auto &val: nums){
-            mp[val]++;
-        }
-        for(auto &val: mp){
-            if(val.second>=2){
-                return val.first;
+        int left = 1;
+        int right = nums.size()-1;
+        while(left<right){
+            int mid = left + (-left+right)/2;
+            int cnt = 0;
+
+            for(auto &val: nums){
+                if(val<=mid) cnt++;
             }
+
+            if(cnt>mid) right = mid;
+            else left = mid+1;
         }
-    return 1;
+        return left;
     }
 };
 // @lc code=end
