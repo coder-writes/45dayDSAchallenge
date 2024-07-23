@@ -8,7 +8,7 @@
 class Solution {
 public:
     int maximumProduct(vector<int>& nums) {
-           sort(nums.rbegin(),nums.rend());
+        sort(nums.rbegin(),nums.rend());
         int res = nums[0];
         
         int pos1 = nums[1]*nums[2];
